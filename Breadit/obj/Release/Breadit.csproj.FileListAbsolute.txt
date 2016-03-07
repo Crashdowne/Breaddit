@@ -20,3 +20,25 @@ E:\Users\Bryan\Documents\Visual Studio 2015\Projects\Breadit\Breadit\obj\Release
 E:\Users\Bryan\Documents\Visual Studio 2015\Projects\Breadit\Breadit\obj\Release\Breadit.csproj.GenerateResource.Cache
 E:\Users\Bryan\Documents\Visual Studio 2015\Projects\Breadit\Breadit\obj\Release\Breadit.exe
 E:\Users\Bryan\Documents\Visual Studio 2015\Projects\Breadit\Breadit\obj\Release\Breadit.pdb
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\Breadit.exe.config
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit.exe
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit.pdb
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\Breadit.exe
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\Breadit.pdb
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\HtmlAgilityPack.dll
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\Newtonsoft.Json.dll
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\RedditSharp.dll
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\WpfAnimatedGif.dll
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\HtmlAgilityPack.pdb
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\HtmlAgilityPack.xml
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\Newtonsoft.Json.xml
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Release\WpfAnimatedGif.xml
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\MainWindow.g.cs
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\App.g.cs
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit_MarkupCompile.cache
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit_MarkupCompile.lref
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\App.baml
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\MainWindow.baml
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit.g.resources
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit.Properties.Resources.resources
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Release\Breadit.csproj.GenerateResource.Cache
