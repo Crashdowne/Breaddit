@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Breadit"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="Breddit" Height="1000" Width="1000">
+        Title="Breddit" Height="1000" Width="1000" WindowStyle="ThreeDBorderWindow">
     <Grid>
         <DockPanel>
             <!--TopBar, docks to the top of the window-->
@@ -87,7 +87,7 @@
                                         <Label Content="Comment Count:"/>
                                         <Label Content="{Binding Post.CommentCount}"/>
                                     </StackPanel>
-                                </StackPanel>                           
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
