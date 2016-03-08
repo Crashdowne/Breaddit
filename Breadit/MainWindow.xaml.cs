@@ -35,10 +35,13 @@ namespace Breadit
             m_model.Initialize();
         }
 
-        // The random useless button that changes a label to a different string
-        private void button_Click(object sender, RoutedEventArgs e)
+        public void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            m_model.Label = "Butt Secks";
+            string myPasswod = passwordBox.Password;
+            string userName = userNameBox.Text;
+            m_model.UserName = userName;
+            m_model.Password = myPasswod;
+            m_model.Refresh();
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -126,6 +129,11 @@ namespace Breadit
                     myPost.ChangeVote(VotableThing.VoteType.None);
                 }
             }
+        }
+
+        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        {
+            m_model.Refresh();
         }
     }
 }

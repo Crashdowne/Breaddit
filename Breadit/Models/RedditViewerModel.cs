@@ -7,12 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using RedditSharp;
 using RedditSharp.Things;
+using System.Windows;
 
 namespace Breadit.Models
 {
     public class RedditViewerModel : AsyncModelBase
     {
-        private string m_label = "Hello World";
+        private string m_label;
         public string Label
         {
             get
@@ -26,6 +27,9 @@ namespace Breadit.Models
                 OnPropertyChanged("Label");
             }
         }
+
+        public string UserName { get; set; }
+        public string Password { get; set; }
 
         // Checks to see if the UI is loading and tells xaml to display a loading packman
         private bool m_isLoading = false;
@@ -52,28 +56,47 @@ namespace Breadit.Models
         // Kind of like the main method
         public async void Initialize()
         {
-            IsLoading = true;
-            var list = await GetFrontPagePosts();
-            IsLoading = false;
-
-            foreach(var post in list)
+            try
             {
-                Posts.Add(post);
+                if (UserName == null)
+                {
+                    IsLoading = true;
+                    var list = await GetFrontPagePostsDefault();
+                    IsLoading = false;
+
+                    foreach (var post in list)
+                    {
+                        Posts.Add(post);
+                    }
+                }
+
+                else
+                {
+                    IsLoading = true;
+                    var list = await GetFrontPagePosts();
+                    IsLoading = false;
+
+                    foreach (var post in list)
+                    {
+                        Posts.Add(post);
+                    }
+                }
+            }
+
+            catch(System.Security.Authentication.AuthenticationException)
+            {
+                MessageBox.Show("Invalid User Name or Password, Please try again. \n (Also the program didn't crash and burn, yay!)");
             }
         }
 
-        // Gets the front page of Reddit, using a hard-coded user
-        public Task<List<CustomPost>> GetFrontPagePosts()
+        // Gets the defualt front page of Reddit
+        public Task<List<CustomPost>> GetFrontPagePostsDefault()
         {
             return Task.Run(delegate
-            {
-                // Creates a new Post object as a list
+            {        
                 List<CustomPost> myPosts = new List<CustomPost>();
-                // Creats a new reddit object, with a hard-coded user
-                Reddit reddit = new Reddit("Crashmaster69", "maytag1", true);
-                // Creates a new fontPage object 
+                Reddit reddit = new Reddit();
                 Subreddit frontPage = reddit.FrontPage;
-                // Creates a list of the Hot items in the front page
                 Listing<Post> postList = frontPage.Hot;
 
                 // Gets the first 25 items on the front page and adds them to the myPosts lists
@@ -85,6 +108,33 @@ namespace Breadit.Models
                 // Returns the list of posts
                 return myPosts;
             });
+        }
+
+        // Gets the front page of Reddit, for a particular user
+        public Task<List<CustomPost>> GetFrontPagePosts()
+        {
+            return Task.Run(delegate
+            {
+                List<CustomPost> myPosts = new List<CustomPost>();
+                Reddit reddit = new Reddit(UserName, Password, true);
+                Subreddit frontPage = reddit.FrontPage;
+                Listing<Post> postList = frontPage.Hot;
+
+                // Gets the first 25 items on the front page and adds them to the myPosts lists
+                foreach (Post post in postList.Take(25))
+                {
+                    myPosts.Add(new CustomPost(post));
+                }
+
+                // Returns the list of posts
+                return myPosts;
+            });
+        }
+
+        public void Refresh()
+        {
+            Posts.Clear();
+            Initialize();
         }
     }
 }

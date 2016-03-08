@@ -13,11 +13,21 @@
             <Grid DockPanel.Dock="Top">
                 <Label FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Content="Breddit"/>
             </Grid>
+            <!--Username and Password box-->
+            <Grid DockPanel.Dock="Top">
+                <StackPanel Orientation="Horizontal">
+                    <Label FontSize="10" HorizontalAlignment="Left" Content="Username: "/>
+                    <TextBox Name="userNameBox" HorizontalAlignment="Left" Height="20" Width="200" />
+                    <Label FontSize="10" HorizontalAlignment="Left" Content="Password: "/>
+                    <PasswordBox Name="passwordBox" Width="200" HorizontalAlignment="Left" />
+                    <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="loginButton_Click" />
+                    <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="refreshButton_Click" />
+                </StackPanel>
+            </Grid>
             <!--BottomBar, docks to the middle-->
             <Grid DockPanel.Dock="Bottom">
                 <StackPanel Orientation="Horizontal">
-                    <Button x:Name="uselessButton" Content="Useless Button" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" RenderTransformOrigin="0.5,0.5" Background="#FFAE00FF" Click="button_Click" />
-                    <Label x:Name="stupidLabel" Content="{Binding Label}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Height="28"/>
+                    <Label Name ="passwordLabel" HorizontalAlignment="Center" Content="{Binding Label}"/>
                     <Image
                     	Width="30"
                     	Height="30"
