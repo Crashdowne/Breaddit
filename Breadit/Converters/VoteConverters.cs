@@ -10,6 +10,7 @@ using System.Windows.Data;
 using RedditSharp;
 using RedditSharp.Things;
 
+// Not sure how this works
 namespace Breadit.Converters
 {
     public class UpVoteToVisibilityConverter : IValueConverter

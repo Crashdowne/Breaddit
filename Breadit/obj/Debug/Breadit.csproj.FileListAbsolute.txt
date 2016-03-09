@@ -47,3 +47,6 @@ E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Debug\Breadit.exe.manifest
 E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\bin\Debug\Breadit.application
 E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Debug\Breadit.exe.manifest
 E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Debug\Breadit.application
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Debug\Breadit.csprojResolveAssemblyReference.cache
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Debug\SecondaryWindow.g.cs
+E:\Users\Bryan\Documents\GitHub\Breaddit\Breadit\obj\Debug\SecondaryWindow.baml

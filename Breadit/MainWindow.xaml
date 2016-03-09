@@ -11,7 +11,7 @@
         <DockPanel>
             <!--TopBar, docks to the top of the window-->
             <Grid DockPanel.Dock="Top">
-                <Label FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" Content="Breddit"/>
+                <Label FontSize="15" FontWeight="Bold" Content="Breddit" HorizontalAlignment="Center" />
             </Grid>
             <!--Username and Password box-->
             <Grid DockPanel.Dock="Top">
@@ -19,15 +19,19 @@
                     <Label FontSize="10" HorizontalAlignment="Left" Content="Username: "/>
                     <TextBox Name="userNameBox" HorizontalAlignment="Left" Height="20" Width="200" />
                     <Label FontSize="10" HorizontalAlignment="Left" Content="Password: "/>
+                    <!--**Change to a more secure password function**-->
                     <PasswordBox Name="passwordBox" Width="200" HorizontalAlignment="Left" />
                     <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="loginButton_Click" />
                     <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="refreshButton_Click" />
+                    <Button x:Name="newWindowButton" Content="New Window" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="newWindowButton_Click" />
                 </StackPanel>
             </Grid>
             <!--BottomBar, docks to the middle-->
             <Grid DockPanel.Dock="Bottom">
                 <StackPanel Orientation="Horizontal">
+                    <!--Username / Password sanity check **Remove for production**-->
                     <Label Name ="passwordLabel" HorizontalAlignment="Center" Content="{Binding Label}"/>
+                    <!--Loading PacMan-->
                     <Image
                     	Width="30"
                     	Height="30"
@@ -66,12 +70,12 @@
                                     </Grid>
                                 </StackPanel>
                                 <!--The thumbnail image to the right of the score / up/down buttons-->
-                                <Image Source="{Binding Post.Thumbnail}"/>
+                                <Image Source="{Binding Post.Thumbnail}" Height="70" Width="70"/>
                                 <StackPanel Orientation="Vertical">
                                     <!--Row1-->
                                     <StackPanel Orientation="Horizontal">
                                         <!--Displays the title of the post and has it as a clickable link-->
-                                        <Label MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="{Binding Post.Title}"/>
+                                        <Label MouseLeftButtonDown="Label_MouseLeftButtonDown" Content="{Binding Post.Title}" />
                                         <Label Content="Domain:"/>
                                         <Label Content="{Binding Post.Domain}"/>
                                     </StackPanel>
@@ -84,7 +88,7 @@
                                     </StackPanel>
                                     <!--Row3-->
                                     <StackPanel Orientation="Horizontal">
-                                        <Label Content="Comment Count:"/>
+                                        <Label Content="Comments:"/>
                                         <Label Content="{Binding Post.CommentCount}"/>
                                     </StackPanel>
                                 </StackPanel>

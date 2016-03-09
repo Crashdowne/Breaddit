@@ -23,18 +23,23 @@ namespace Breadit
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
+        // Creates a new RedditViewerModel object named m_model
         RedditViewerModel m_model = new RedditViewerModel();
 
+        // Create a window and go through the initialization steps
         public MainWindow()
         {
             InitializeComponent();
-
+            // DataContext??
             DataContext = m_model;
             m_model.Initialize();
         }
 
+        // Gets the UserName and Password fron the UI (on button press), 
+        // sends them to m_model and refreshes to pull the User's Front Page
         public void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string myPasswod = passwordBox.Password;
@@ -44,6 +49,7 @@ namespace Breadit
             m_model.Refresh();
         }
 
+        // Not sure why this is here
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -55,7 +61,7 @@ namespace Breadit
             // Checks to see if the sending thing is a lable
             if(sender is Label)
             {
-                // If it is, create a new lable and get the dara from it
+                // If it is, create a new lable and get the data from it
                 Label myLabel = (Label)sender;
                 object maybeAPost = myLabel.DataContext;
 
@@ -64,7 +70,14 @@ namespace Breadit
                 {
                     CustomPost myPost = (CustomPost)maybeAPost;
                     string url = myPost.Post.Url.ToString();
-                    Process.Start(url);
+                    //Process.Start(url);
+
+                    // Hides MainWindow
+                    this.Hide();
+                    SecondaryWindow win = new SecondaryWindow(url);
+                    win.Show();
+                    // Closes MainWindow so SecondaryWindow can close the program when exited
+                    //this.Close();
                 }
             }
         }
@@ -131,9 +144,21 @@ namespace Breadit
             }
         }
 
+        // Calls the Refresh method, which gets the Front Page again
         private void refreshButton_Click(object sender, RoutedEventArgs e)
         {
             m_model.Refresh();
+        }
+
+        private void newWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            string url = "http://www.google.ca";
+            // Hides MainWindow
+            // this.Hide();
+            SecondaryWindow win = new SecondaryWindow(url);
+            win.Show();
+            // Closes MainWindow so SecondaryWindow can close the program when exited
+            this.Close();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Breadit.Models
 {
     public class RedditViewerModel : AsyncModelBase
     {
+        // Not sure what this does...
         private string m_label;
         public string Label
         {
@@ -58,6 +59,7 @@ namespace Breadit.Models
         {
             try
             {
+                // If there is no UserName entered (ie. when the program starts), get the default front page
                 if (UserName == null)
                 {
                     IsLoading = true;
@@ -72,6 +74,7 @@ namespace Breadit.Models
 
                 else
                 {
+                    // If there is a UserName (a password is assumed) login and display the user's front page
                     IsLoading = true;
                     var list = await GetFrontPagePosts();
                     IsLoading = false;
@@ -83,6 +86,7 @@ namespace Breadit.Models
                 }
             }
 
+            // Catch an invalid login error so the program doesn't explode
             catch(System.Security.Authentication.AuthenticationException)
             {
                 MessageBox.Show("Invalid User Name or Password, Please try again. \n (Also the program didn't crash and burn, yay!)");
@@ -110,7 +114,7 @@ namespace Breadit.Models
             });
         }
 
-        // Gets the front page of Reddit, for a particular user
+        // Logs the user in and gets their Front Page
         public Task<List<CustomPost>> GetFrontPagePosts()
         {
             return Task.Run(delegate
@@ -131,6 +135,7 @@ namespace Breadit.Models
             });
         }
 
+        // Clear all of the items in the list and goes through the Initialize method to repopulate
         public void Refresh()
         {
             Posts.Clear();

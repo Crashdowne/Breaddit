@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Not sure how this works...
 namespace Breadit.Models
 {
     public class AsyncModelBase : INotifyPropertyChanged
