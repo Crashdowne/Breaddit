@@ -25,27 +25,46 @@ namespace Breadit
     /// </summary>
     public partial class SecondaryWindow : Window
     {
-        // Takes in the URL from MainWindow
+        WebViewerModel m_model = null;
         private string url;
+        private SecondaryWindow win;
 
         public SecondaryWindow(string url)
         {
             InitializeComponent();
-            this.url = url;
+            // m_model = the data model (A big catch-all for all of the data)
+            m_model = new WebViewerModel(url);
+            // Model = Data Model, Just a model for your contained data. Use this Data Model
+            DataContext = m_model;
+
             BrowserActions();
+        }
+
+        public SecondaryWindow(string url, SecondaryWindow win)
+        {
+            this.url = url;
+            this.win = win;
         }
 
         // Navigates the browser to the URL from MainWIndow
         public void BrowserActions()
         {
-            Browser.Navigate(url);
+            // Browsing with a custom UserAgent (trying to pull mobile sites) **Not sure if it is working**
+           // Browser.Navigate(new Uri(url), string.Empty, null, string.Format("User-Agent: {0}", "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"));
+            Browser.Navigate(m_model.Url);
         }
 
         // Returns you to MainWindow and closes this window
         private void Return_Click(object sender, RoutedEventArgs e)
         {
-            Window mainWindow = Application.Current.MainWindow;
-            mainWindow.Show();
+            ReturnToPreviousWindow();
+        }
+
+        // Hiding SecondaryWindow works, but Closing it causes the program to crash **Why??
+        public void ReturnToPreviousWindow()
+        {
+            Window main = Application.Current.MainWindow;
+            main.Show();
             this.Close();
         }
     }

@@ -26,7 +26,7 @@
                     <Button x:Name="newWindowButton" Content="New Window" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="newWindowButton_Click" />
                 </StackPanel>
             </Grid>
-            <!--BottomBar, docks to the middle-->
+            <!--BottomBar-->
             <Grid DockPanel.Dock="Bottom">
                 <StackPanel Orientation="Horizontal">
                     <!--Username / Password sanity check **Remove for production**-->
@@ -70,7 +70,7 @@
                                     </Grid>
                                 </StackPanel>
                                 <!--The thumbnail image to the right of the score / up/down buttons-->
-                                <Image Source="{Binding Post.Thumbnail}" Height="70" Width="70"/>
+                                <Image Source="{Binding Post.Thumbnail}" Margin="5" Height="70" Width="70"/>
                                 <StackPanel Orientation="Vertical">
                                     <!--Row1-->
                                     <StackPanel Orientation="Horizontal">
@@ -89,7 +89,7 @@
                                     <!--Row3-->
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Comments:"/>
-                                        <Label Content="{Binding Post.CommentCount}"/>
+                                        <Label Content="{Binding Post.CommentCount}" />
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>

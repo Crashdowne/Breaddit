@@ -61,21 +61,24 @@ namespace Breadit
             // Checks to see if the sending thing is a lable
             if(sender is Label)
             {
-                // If it is, create a new lable and get the data from it
+                // Ceates a Label object myLabel
                 Label myLabel = (Label)sender;
-                object maybeAPost = myLabel.DataContext;
+                // Gets us the post object we just clicked on
+                object selectedPost = myLabel.DataContext;
 
                 // If the mabyeAPost is a post, create a new Custom Post, get the URL from it, convert to a string and launch the default browser
-                if(maybeAPost is CustomPost)
+                if(selectedPost is CustomPost)
                 {
-                    CustomPost myPost = (CustomPost)maybeAPost;
+                    CustomPost myPost = (CustomPost)selectedPost;
+
                     string url = myPost.Post.Url.ToString();
                     //Process.Start(url);
 
                     // Hides MainWindow
-                    this.Hide();
+                    
                     SecondaryWindow win = new SecondaryWindow(url);
                     win.Show();
+                    this.Hide();
                     // Closes MainWindow so SecondaryWindow can close the program when exited
                     //this.Close();
                 }

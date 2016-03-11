@@ -6,15 +6,27 @@
         xmlns:local="clr-namespace:Breadit"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="Breddit" Height="1000" Width="1000" WindowStyle="ThreeDBorderWindow">
+        Title="Breddit" 
+        MaxHeight="1000" 
+        Height="700" 
+        MaxWidth="1000" 
+        Width="500" 
+        WindowStyle="ThreeDBorderWindow">
     <Grid>
-        <StackPanel>
-            <!--Page title-->
-            <Label FontSize="15" FontWeight="Bold" Content="Breddit Web View" HorizontalAlignment="Center" />
-            <!--A WebBrowser-->
-            <WebBrowser HorizontalAlignment="Center" VerticalAlignment="Center" Height="500" Width="400" Name="Browser" />
-            <!--Button to return to MainWindow--> 
-            <Button x:Name="returnButton" Content="Return" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="Return_Click" />
-        </StackPanel>
+        <DockPanel>
+            <Grid DockPanel.Dock="Top">
+                <Label FontSize="15" FontWeight="Bold" Content="Breddit" HorizontalAlignment="Center" />
+            </Grid>
+            <Grid DockPanel.Dock="Bottom">
+                <!--Button to return to MainWindow-->
+                <Button x:Name="returnButton" Content="Return" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="Return_Click" />
+                <TextBlock Text="Doc Panel Bottom" FontSize="15" HorizontalAlignment="Left"/>
+            </Grid>
+            <Grid>
+                <!--Free Middle Area-->
+                <!--A WebBrowser-->
+                <WebBrowser Name="Browser" />
+            </Grid>
+            </DockPanel>
     </Grid>
 </Window>
