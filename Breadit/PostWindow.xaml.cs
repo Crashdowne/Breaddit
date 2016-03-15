@@ -21,37 +21,30 @@ namespace Breadit
     using Models;
     using Converters;
     /// <summary>
-    /// Interaction logic for SecondaryWindow.xaml
+    /// Interaction logic for PostWindow.xaml
     /// </summary>
-    public partial class SecondaryWindow : Window
+    public partial class PostWindow : Window
     {
-        WebViewerModel m_model = null;
-        private string url;
-        private SecondaryWindow win;
+        PostDataModel m_model = null;
 
-        public SecondaryWindow(string url)
+        public PostWindow(CustomPost openedPost)
         {
             InitializeComponent();
             // m_model = the data model (A big catch-all for all of the data)
-            m_model = new WebViewerModel(url);
+            m_model = new PostDataModel(openedPost);
             // Model = Data Model, Just a model for your contained data. Use this Data Model
             DataContext = m_model;
 
+            m_model.Initialize();
+            
             BrowserActions();
-        }
-
-        public SecondaryWindow(string url, SecondaryWindow win)
-        {
-            this.url = url;
-            this.win = win;
         }
 
         // Navigates the browser to the URL from MainWIndow
         public void BrowserActions()
         {
-            // Browsing with a custom UserAgent (trying to pull mobile sites) **Not sure if it is working**
-           // Browser.Navigate(new Uri(url), string.Empty, null, string.Format("User-Agent: {0}", "Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K) AppleWebkit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30"));
-            Browser.Navigate(m_model.Url);
+           // Browsing to the URL from the OpenedPost **Don't know how to make it a custom UserAgent so it will pull mobile pages
+           Browser.Navigate(m_model.OpenedPost.Post.Url);
         }
 
         // Returns you to MainWindow and closes this window
@@ -60,7 +53,7 @@ namespace Breadit
             ReturnToPreviousWindow();
         }
 
-        // Hiding SecondaryWindow works, but Closing it causes the program to crash **Why??
+        // Hiding PostWindow works, but Closing it causes the program to crash **Why??
         public void ReturnToPreviousWindow()
         {
             Window main = Application.Current.MainWindow;

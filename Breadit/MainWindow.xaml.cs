@@ -71,15 +71,10 @@ namespace Breadit
                 {
                     CustomPost myPost = (CustomPost)selectedPost;
 
-                    string url = myPost.Post.Url.ToString();
-                    //Process.Start(url);
-
-                    // Hides MainWindow
-                    
-                    SecondaryWindow win = new SecondaryWindow(url);
+                    PostWindow win = new PostWindow(myPost);
                     win.Show();
                     this.Hide();
-                    // Closes MainWindow so SecondaryWindow can close the program when exited
+                    // Closes MainWindow so PostWindow can close the program when exited
                     //this.Close();
                 }
             }
@@ -155,13 +150,13 @@ namespace Breadit
 
         private void newWindowButton_Click(object sender, RoutedEventArgs e)
         {
-            string url = "http://www.google.ca";
-            // Hides MainWindow
-            // this.Hide();
-            SecondaryWindow win = new SecondaryWindow(url);
-            win.Show();
-            // Closes MainWindow so SecondaryWindow can close the program when exited
-            this.Close();
+            //string url = "http://www.google.ca";
+            //// Hides MainWindow
+            //// this.Hide();
+            //PostWindow win = new PostWindow(url);
+            //win.Show();
+            //// Closes MainWindow so PostWindow can close the program when exited
+            //this.Close();
         }
     }
 }
