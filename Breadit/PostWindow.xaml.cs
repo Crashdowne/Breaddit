@@ -36,22 +36,17 @@ namespace Breadit
             DataContext = m_model;
 
             m_model.Initialize();
-            
+
             BrowserActions();
         }
 
         // Navigates the browser to the URL from MainWIndow
         public void BrowserActions()
         {
-           // Browsing to the URL from the OpenedPost **Don't know how to make it a custom UserAgent so it will pull mobile pages
-           Browser.Navigate(m_model.OpenedPost.Post.Url);
+            // Browsing to the URL from the OpenedPost **Don't know how to make it a custom UserAgent so it will pull mobile pages
+            Browser.Navigate(m_model.OpenedPost.Post.Url);
         }
 
-        // Returns you to MainWindow and closes this window
-        private void Return_Click(object sender, RoutedEventArgs e)
-        {
-            ReturnToPreviousWindow();
-        }
 
         // Hiding PostWindow works, but Closing it causes the program to crash **Why??
         public void ReturnToPreviousWindow()
@@ -59,6 +54,76 @@ namespace Breadit
             Window main = Application.Current.MainWindow;
             main.Show();
             this.Close();
+        }
+
+        // I think I have the behaviour right, maybe there is an issue in CustomComment??
+
+        // Behaviour if the up arrow HAS been clicked and this click removes the vote (Sets it to None Vote)
+        private void redditUpArrow_Click(object sender, RoutedEventArgs e)
+        {
+            // Is it a button that is sent to me?
+            if (sender is Button)
+            {
+                Button myButton = (Button)sender;
+                object maybeAComment = myButton.DataContext;
+
+                if (maybeAComment is CustomComment)
+                {
+                    CustomComment myComment = (CustomComment)maybeAComment;
+                    myComment.ChangeVote(VotableThing.VoteType.None);
+                }
+            }
+        }
+
+        private void redditNakedUpArrow_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button myButton = (Button)sender;
+                object maybeAComment = myButton.DataContext;
+
+                if (maybeAComment is CustomComment)
+                {
+                    CustomComment myComment = (CustomComment)maybeAComment;
+                    myComment.ChangeVote(VotableThing.VoteType.Upvote);
+                }
+            }
+        }
+
+        private void redditNakedDownArrow_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button myButton = (Button)sender;
+                object maybeAComment = myButton.DataContext;
+
+                if (maybeAComment is CustomComment)
+                {
+                    CustomComment myComment = (CustomComment)maybeAComment;
+                    myComment.ChangeVote(VotableThing.VoteType.Downvote);
+                }
+            }
+        }
+
+        private void redditDownArrow_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button)
+            {
+                Button myButton = (Button)sender;
+                object maybeAComment = myButton.DataContext;
+
+                if (maybeAComment is CustomComment)
+                {
+                    CustomComment myComment = (CustomComment)maybeAComment;
+                    myComment.ChangeVote(VotableThing.VoteType.None);
+                }
+            }
+        }
+
+        // Calls a method to return to the MainWindow on click of the Return button
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            ReturnToPreviousWindow();
         }
     }
 }

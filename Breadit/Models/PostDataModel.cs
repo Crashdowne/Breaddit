@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 using RedditSharp;
 using RedditSharp.Things;
+using System.Windows;
 
 namespace Breadit.Models
 {
@@ -30,8 +31,8 @@ namespace Breadit.Models
             }
         }
 
-        public readonly ObservableCollection<Comment> m_comments = new ObservableCollection<Comment>();
-        public ObservableCollection<Comment> Comments
+        private readonly ObservableCollection<CustomComment> m_comments = new ObservableCollection<CustomComment>();
+        public ObservableCollection<CustomComment> Comments
         {
             get { return m_comments; }
         }
@@ -48,9 +49,9 @@ namespace Breadit.Models
         {
             var commentList = await GetComments();
 
-            foreach(var comment in commentList)
+            foreach (var comment in commentList)
             {
-                Comments.Add(comment);
+                Comments.Add(new CustomComment(comment));
             }
         }
 

@@ -23,7 +23,6 @@
                     <PasswordBox Name="passwordBox" Width="200" HorizontalAlignment="Left" />
                     <Button x:Name="loginButton" Content="Login" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="loginButton_Click" />
                     <Button x:Name="refreshButton" Content="Refresh" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="refreshButton_Click" />
-                    <Button x:Name="newWindowButton" Content="New Window" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="newWindowButton_Click" />
                 </StackPanel>
             </Grid>
             <!--BottomBar-->

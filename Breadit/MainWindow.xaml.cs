@@ -147,16 +147,5 @@ namespace Breadit
         {
             m_model.Refresh();
         }
-
-        private void newWindowButton_Click(object sender, RoutedEventArgs e)
-        {
-            //string url = "http://www.google.ca";
-            //// Hides MainWindow
-            //// this.Hide();
-            //PostWindow win = new PostWindow(url);
-            //win.Show();
-            //// Closes MainWindow so PostWindow can close the program when exited
-            //this.Close();
-        }
     }
 }

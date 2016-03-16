@@ -17,11 +17,38 @@
             <Label  VerticalAlignment="Top" FontSize="15" FontWeight="Bold" Content="Breddit" HorizontalAlignment="Center" Height="30" />
             <!--WebBrowser-->
             <WebBrowser Name="Browser" Height="500" />
+            <Button x:Name="returnButton" Content="Return" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="99" Height="24" Background="#FFAE00FF" Click="returnButton_Click" />
             <!--List of comments, no DockPanels means it is naturally scrollable-->
             <ListView ItemsSource="{Binding Comments}" Height="440">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Label Content="{Binding Body}" />
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <!--Makes a button which on click chamges the visibility of two images of up and down arrows
+                                        Converts a boolean result to the visibility of the image-->
+                                    <Button Name="redditNakedUpArrow" Click="redditNakedUpArrow_Click"  Visibility="{Binding IsNoneVote, Converter={StaticResource BoolToVis}}">
+                                        <Image Source="Resources/Reddit_UpArrow_Naked.png"/>
+                                    </Button>
+                                    <Button Name="redditUpArrow" Click="redditUpArrow_Click" Visibility="{Binding IsUpVoted, Converter={StaticResource BoolToVis}}">
+                                        <Image Source="Resources/Reddit_UpArrow_Pressed.png"/>
+                                    </Button>
+                                </Grid>
+                                <Grid>
+                                    <Button Name="redditNakedDownArrow" Click="redditNakedDownArrow_Click" Visibility="{Binding IsNoneVote, Converter={StaticResource BoolToVis}}">
+                                        <Image Source="Resources/Reddit_DownArrow_Naked.png" />
+                                    </Button>
+                                    <Button Name="redditDownArrow" Click="redditDownArrow_Click" Visibility="{Binding IsDownVoted, Converter={StaticResource BoolToVis}}">
+                                        <Image Source="Resources/Reddit_DownArrow_Pressed.png" />
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                            <!--Author and Content of Comment-->
+                            <StackPanel Orientation="Vertical">
+                                <Label Content="{Binding Comment.Author}" FontSize="10" FontStyle="Italic" FontWeight="Light" />
+                                <Label Content="{Binding Comment.Body}" />
+                            </StackPanel>
+                        </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using RedditSharp;
 using RedditSharp.Things;
+using System.Windows;
 
 namespace Breadit.Models
 {
@@ -44,8 +45,23 @@ namespace Breadit.Models
 
         public async void ChangeVote(VotableThing.VoteType vote)
         {
-            await Task.Run(delegate { Post.SetVote(vote); });
+            var isSet = await Task<bool>.Run(delegate
+            {
+                try
+                {
+                    Post.SetVote(vote);
+                    return true;
+                }
+                catch (NullReferenceException)
+                {
+                    return false;
+                }
+            });
 
+            if (!isSet)
+            {
+                MessageBox.Show("Please login to vote");
+            }
             OnPropertyChanged("IsUpVoted");
             OnPropertyChanged("IsDownVoted");
             OnPropertyChanged("IsNoneVote");
