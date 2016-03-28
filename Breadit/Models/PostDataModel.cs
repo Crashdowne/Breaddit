@@ -37,7 +37,6 @@ namespace Breadit.Models
             get { return m_comments; }
         }
 
-
         // Init this data model
         public PostDataModel(CustomPost openedPost)
         {

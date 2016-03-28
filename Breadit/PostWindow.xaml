@@ -47,6 +47,7 @@
                             <StackPanel Orientation="Vertical">
                                 <Label Content="{Binding Comment.Author}" FontSize="10" FontStyle="Italic" FontWeight="Light" />
                                 <Label Content="{Binding Comment.Body}" />
+                                <Label Content="{Binding Age}"  />
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

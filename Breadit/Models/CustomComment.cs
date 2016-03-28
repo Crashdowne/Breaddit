@@ -12,6 +12,20 @@ namespace Breadit.Models
 {
     public class CustomComment : AsyncModelBase
     {
+        private string m_age = "";
+        public string Age
+        {
+            get
+            {
+                return m_age;
+            }
+
+            set
+            {
+                m_age = value;
+                OnPropertyChanged("Age");
+            }
+        }
         public bool IsUpVoted
         {
             get
@@ -39,6 +53,8 @@ namespace Breadit.Models
         public CustomComment(Comment comment)
         {
             Comment = comment;
+            TimeSpan diff = DateTime.Now - comment.Created;
+            Age = simpleTimeSpan(diff);
         }
 
         public Comment Comment { get; set; }
@@ -81,5 +97,25 @@ namespace Breadit.Models
         //    MessageBox.Show("You must be logged in to vote");
         //}
 
+        // Displays the timespan in a simple format
+        private string simpleTimeSpan(TimeSpan diff)
+        {
+            // display minutes if timespan is < 1hr
+            if (diff < TimeSpan.FromHours(1))
+            {
+                return diff.ToString("%m") + " minutes old";
+            }
+            // display hours if timespan < 1 day
+            else if (diff < TimeSpan.FromDays(1))
+            {
+                return diff.ToString("%h") + " hours old";
+            }
+            // display number of days if 1+ days
+            else if (diff > TimeSpan.FromDays(1))
+            {
+                return diff.ToString("%d") + " days old";
+            }
+            return "";
+        }
     }
 }

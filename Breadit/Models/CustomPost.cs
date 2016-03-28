@@ -12,6 +12,21 @@ namespace Breadit.Models
 {
     public class CustomPost : AsyncModelBase
     {
+        private string m_age = "";
+        public string Age
+        {
+            get
+            {
+                return m_age;
+            }
+
+            set
+            {
+                m_age = value;
+                OnPropertyChanged("Age");
+            }
+        }
+
         public bool IsUpVoted
         {
             get
@@ -39,6 +54,7 @@ namespace Breadit.Models
         public CustomPost(Post post)
         {
             Post = post;
+            Age = (DateTime.Now - post.Created).ToString();
         }
 
         public Post Post { get; set; }

@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Breadit.exe" size="108472">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Breadit.exe" size="109496">
       <assemblyIdentity name="Breadit" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>X0gDR2FhryXaZ9xq2wN+RApfED4m6A6L/kdAx/upX1I=</dsig:DigestValue>
+        <dsig:DigestValue>T16Bux+1PbxzK1VYfvcyfagRMs3wJVXj2MTahUS2NBE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

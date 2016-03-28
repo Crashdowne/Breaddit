@@ -124,6 +124,13 @@ namespace Breadit.Models
                 Subreddit frontPage = reddit.FrontPage;
                 Listing<Post> postList = frontPage.Hot;
 
+6
+//In[3]: client_auth = requests.auth.HTTPBasicAuth('p-jcoLKBynTLew', 'gko_LXELoV07ZBNUXrvWZfzE3aI')
+//In[4]: post_data = { "grant_type": "password", "username": "reddit_bot", "password": "snoo"}
+//                In[5]: headers = { "User-Agent": "ChangeMeClient/0.1 by YourUsername"}
+//                In[6]: response = requests.post("https://www.reddit.com/api/v1/access_token", auth = client_auth, data = post_data, headers = headers)
+//In[7]: response.json()
+
                 // Gets the first 25 items on the front page and adds them to the myPosts lists
                 foreach (Post post in postList.Take(25))
                 {
